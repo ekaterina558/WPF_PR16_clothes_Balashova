@@ -25,6 +25,12 @@ namespace WPF_PR16_clothes_Balashova.PageMain
         public PagePantsBreechesAdd(Clothes selectedClothes)
         {
             InitializeComponent();
+            if (selectedClothes != null)
+                _currentClothes = selectedClothes;
+            DataContext = _currentClothes;
+            ComboStrana.ItemsSource = AlisaEntities1.GetContext().Strana.ToList();
+            ComboRazmer.ItemsSource = AlisaEntities1.GetContext().Razmer.ToList();
+            ComboCvet.ItemsSource = AlisaEntities1.GetContext().Cvet.ToList();
         }
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
